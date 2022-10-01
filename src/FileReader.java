@@ -51,6 +51,31 @@ public class FileReader {
         }
         return true;
     }
+    /**
+     * Retrieves the strings of input4.txt and puts them in an array, usable for the assignment
+     * @return An array of the elements of input4.txt
+     */
+    public String[] getInputArray(){
+        Scanner scan = null;
+        String[] array = null;
+        LinkedList<String> tempList = new LinkedList<>(); //I gotta start thinking of better variable names
+        try{
+            scan = new Scanner(new File(INPUT_4));
+            while( scan.hasNext() ){
+                tempList.add( scan.nextLine() );
+            }
+
+            array = new String[tempList.size()];
+
+            for (int i = 0; i < array.length; i++){
+                array[i] = tempList.get(i);
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return array;
+    }
 
 
 }
