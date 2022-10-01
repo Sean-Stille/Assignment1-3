@@ -11,12 +11,13 @@ import java.util.random.*;
 public class FileReader {
     final String INPUT_4 = "input4.txt";
     final String TREE_FILE = "treeNames.txt";
+    int numElems;
     /**
      * Constructor, takes in the number of elements and generates them
      * @param numElements The number of elements you want input4.txt to have
      */
     public FileReader(int numElements){
-        generateList(numElements);
+        numElems = numElements;
     }
 
     /**
@@ -25,7 +26,7 @@ public class FileReader {
      * @param numElements The number of elements you want input4.txt to have
      * @return boolean to show it worked, I didn't really implement this though.
      */
-    public boolean generateList(int numElements){
+    public boolean generateList(){
         LinkedList<String> list = new LinkedList<>();
         Scanner scan = null;
         PrintWriter write = null;
@@ -38,7 +39,7 @@ public class FileReader {
                 list.add(scan.nextLine());
             }
 
-            for( int i = 0; i < numElements; i++){
+            for( int i = 0; i < numElems; i++){
                 write.write(list.get(rand.nextInt(list.size()))+"\n");
             }
         }
